@@ -1,0 +1,7 @@
+<h3><%= @user.name %></h3>
+<%= form_for @user , :url => user_path(@user), :method => :patch do |f| %>
+<div><%= f.label :age, 'Age' %> <%= f.text_field :age %></div>
+<div><%= f.label :email, 'Email' %> <%= f.text_field :email %></div>
+<div><%= f.label :sex, 'Sex' %> <%= f.select( :sex, ['Man','Lady']) %></div>
+<div><%= f.submit "Commit" %></div>
+<% end %>
