@@ -30,6 +30,10 @@ class UsersController < ApplicationController
 
   end 
 
+  def login
+    
+  end
+
   private
 
   def find_user
@@ -39,5 +43,8 @@ class UsersController < ApplicationController
   def update_params
     params.require(:user).permit(:age, :email, :sex)
   end
+
+  def login_params
+    params.permit(:name, :password)
 
 end
