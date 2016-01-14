@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  match 'login', :to => 'user#login', :as => 'signin', :via => [:get, :post]
+  match 'login', :to => 'users#login', :as => 'signin', :via => [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

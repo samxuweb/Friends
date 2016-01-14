@@ -31,7 +31,11 @@ class UsersController < ApplicationController
   end 
 
   def login
-    
+    @user = User.find_by(:email => params[:inputEmail])
+    if @user.authenticate(params[:inputPassword])
+      self.current_user = @user
+      redirect_to user_path(@user)
+    end
   end
 
   private
@@ -46,5 +50,6 @@ class UsersController < ApplicationController
 
   def login_params
     params.permit(:name, :password)
+  end
 
 end
