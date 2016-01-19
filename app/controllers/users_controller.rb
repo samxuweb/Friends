@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :find_user, :only => [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def show
 
@@ -30,14 +31,6 @@ class UsersController < ApplicationController
 
   end 
 
-  def login
-    @user = User.find_by(:email => params[:inputEmail])
-    if @user.authenticate(params[:inputPassword])
-      self.current_user = @user
-      redirect_to user_path(@user)
-    end
-  end
-
   private
 
   def find_user
@@ -46,10 +39,6 @@ class UsersController < ApplicationController
 
   def update_params
     params.require(:user).permit(:age, :email, :sex)
-  end
-
-  def login_params
-    params.permit(:name, :password)
   end
 
 end
