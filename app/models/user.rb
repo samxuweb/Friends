@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_secure_password
+  #has_secure_password
 
   MAN = 'Man'
   LADY = 'Lady'
